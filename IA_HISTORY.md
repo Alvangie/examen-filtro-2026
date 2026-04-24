@@ -1,128 +1,40 @@
 # IA_HISTORY.md — Registro de Uso de IA
+Alumno/a: Ángela Lucero Álvarez
 
-**Alumno/a:** <!-- Tu nombre completo -->
-**Fecha:** <!-- Fecha del examen, ej: 21/04/2026 -->
+Fecha: 23 de Abril de 2026
 
----
+Prompt 1
 
-> **Instrucciones:** Documentar los 2 prompts más importantes que usaste durante el examen.
-> Completar **todas** las secciones con criterio propio. No se trata de copiar lo que generó la IA — se evalúa tu capacidad de analizar, detectar errores y tomar decisiones técnicas fundamentadas.
->
-> **Mínimo por sección de análisis: 3 oraciones.** Respuestas de una línea no se consideran válidas.
+Momento del proceso:
+Al inicio  cuando intentaba que las tarjetas de estadísticas (.stat-card) encajaran en una sola fila sin romperse al agregarles padding y márgenes.
 
----
+Lo que le pedí a la IA:
 
-> **Ejemplo de análisis insuficiente** ❌
-> _"La IA generó el código y funcionó bien."_
->
-> **Ejemplo de análisis aceptable** ✅
-> _"La IA reemplazó los `<div>` por etiquetas semánticas, pero usó `<section>` para la navegación en lugar de `<nav>`. Lo detecté al revisar la estructura en DevTools. Técnicamente es incorrecto porque `<nav>` tiene un rol ARIA implícito que `<section>` no tiene, así que lo corregí manualmente."_
+"Actúa como un Ingeniero Frontend Senior. Necesito rehacer la estructura de datos para una ficha de personaje. Explicame la mecánica del Box Model cuando se presentan desbordamientos por padding y cómo implementar un reset global eficiente que garantice que el tamaño de las cajas sea predecible en todo el proyecto."
 
----
+Análisis del resultado obtenido:
 
-## Prompt 1
+La IA propuso una estructura coherente utilizando <main> y <section>, lo cual fue un buen punto de partida para limpiar el código. Me explicó el concepto de box-sizing: border-box, que era exactamente lo que necesitaba para entender por qué las cajas se agrandaban al añadirles relleno.
+El enfoque fue pedagógico y me dio una buena base para empezar a separar el CSS del HTML.
 
-### Momento del proceso
+Qué debí corregir manualmente y por qué:
 
-```
-<!--
-  Indicá en qué punto del examen usaste este prompt.
-  No es sobre la hora exacta — es sobre el contexto: ¿qué estabas intentando resolver cuando recurriste a la IA?
-  Ej: "Cuando no sabía cómo estructurar el layout con Grid."
-  Ej: "Al terminar el HTML, para verificar si me faltaba algo de accesibilidad."
-  Ej: "Al principio del ejercicio de JS, para entender cómo arrancar."
--->
-```
+Tuve que hacer varios ajustes porque la IA sugirió aplicar el box-sizing solo a clases específicas, lo cual me pareció poco escalable. Decidí ignorar esa sugerencia y lo apliqué de forma global con el selector universal * para garantizar que todos los elementos del DOM se comporten igual. Además, noté que la IA usó un <h3> para el nombre del personaje, pero lo cambié manualmente a un <h1> porque técnicamente es el encabezado principal de la página. También corregí la navegación, ya que la IA mezclaba secciones genéricas y yo preferí usar <nav> con una lista <ul> para cumplir con los estándares de accesibilidad.
 
-### Lo que le pedí a la IA
+Prompt 2
+Momento del proceso:
 
-```
-<!-- Pegá aquí el prompt exacto que escribiste. Debe ser el texto que vos escribiste, no la respuesta. -->
-```
+Durante la creación del archivo script.js, específicamente cuando estaba definiendo la lógica de combate y los estados de salud de Zara.
 
-### Análisis del resultado obtenido
+Lo que le pedí a la IA:
 
-```
-<!--
-  Describí con tus propias palabras qué generó la IA. No copies el código ni la respuesta — analizála.
-  Mínimo 3 oraciones. Respondé:
-  - ¿Qué enfoque tomó la IA para resolver el problema?
-  - ¿El resultado era lo que esperabas? ¿Por qué sí o por qué no?
-  - ¿Qué parte te resultó útil como punto de partida?
--->
-```
+"Necesito pasar mi lógica de combate a sintaxis de Arrow Functions para que el código quede más limpio. Explicame cuándo usar el retorno implícito y generame un ejemplo de una función de daño que reste ataque y defensa, pero asegurate de que el resultado nunca sea un número negativo."
 
-### Qué debí corregir manualmente y por qué
+Análisis del resultado obtenido:
+La IA me mostró cómo usar las funciones flecha y el ahorro de código que permiten los retornos en una sola línea. Fue útil para modernizar el estilo del script y cumplir con los requisitos del examen. Sin embargo, el ejemplo de cálculo que me dio era demasiado básico (una resta directa), ignorando que en un juego real, si la defensa es mayor al ataque, el código podría devolver un daño negativo y causar errores.
 
-```
-<!--
-  Esta sección es la más importante. Sé específico/a. Mínimo 3 oraciones.
-  Respondé:
-  - ¿Qué error concreto tenía el resultado? (semántico, de accesibilidad, lógico, de estilo, etc.)
-  - ¿Cómo lo detectaste? (al probarlo en el browser, al leer el código, al ver la consola...)
-  - ¿Por qué estaba técnicamente incorrecto o insuficiente?
-  - ¿Qué cambiaste exactamente para que funcionara bien?
-  Si no corregiste nada, explicá por qué el resultado era correcto tal como estaba.
--->
-```
+Qué debí corregir manualmente y por qué:
+Tuve que intervenir en la función calculateDamage porque la IA me la dio en una sola línea que devolvía valores negativos (como -5), lo que hacía que el personaje ganara vida al ser atacado. Abrí las llaves {} manualmente y le agregué un condicional para que, si el daño es menor a cero, devuelva 0 siempre. También cambié los nombres de las variables; la IA usó letras genéricas como a y b, y yo las renombré a attack y defense para que el código sea más claro y fácil de entender para cualquiera que lo lea.
 
----
-
-## Prompt 2
-
-### Momento del proceso
-
-```
-<!--
-  Indicá en qué punto del examen usaste este prompt.
-  No es sobre la hora exacta — es sobre el contexto: ¿qué estabas intentando resolver cuando recurriste a la IA?
-  Ej: "Cuando no sabía cómo estructurar el layout con Grid."
-  Ej: "Al terminar el HTML, para verificar si me faltaba algo de accesibilidad."
-  Ej: "Al principio del ejercicio de JS, para entender cómo arrancar."
--->
-```
-
-### Lo que le pedí a la IA
-
-```
-<!-- Pegá aquí el prompt exacto que escribiste. Debe ser el texto que vos escribiste, no la respuesta. -->
-```
-
-### Análisis del resultado obtenido
-
-```
-<!--
-  Describí con tus propias palabras qué generó la IA. No copies el código ni la respuesta — analizála.
-  Mínimo 3 oraciones. Respondé:
-  - ¿Qué enfoque tomó la IA para resolver el problema?
-  - ¿El resultado era lo que esperabas? ¿Por qué sí o por qué no?
-  - ¿Qué parte te resultó útil como punto de partida?
--->
-```
-
-### Qué debí corregir manualmente y por qué
-
-```
-<!--
-  Esta sección es la más importante. Sé específico/a. Mínimo 3 oraciones.
-  Respondé:
-  - ¿Qué error concreto tenía el resultado? (semántico, de accesibilidad, lógico, de estilo, etc.)
-  - ¿Cómo lo detectaste? (al probarlo en el browser, al leer el código, al ver la consola...)
-  - ¿Por qué estaba técnicamente incorrecto o insuficiente?
-  - ¿Qué cambiaste exactamente para que funcionara bien?
-  Si no corregiste nada, explicá por qué el resultado era correcto tal como estaba.
--->
-```
-
----
-
-## Reflexión final
-
-```
-<!--
-  Mínimo 3 oraciones. Respondé:
-  - ¿Qué tipo de errores repitió la IA que tuviste que corregir?
-  - ¿Hubo algo que la IA resolvió bien a la primera sin que necesitaras tocarlo?
-  - ¿Cambiarías la forma en que le pedís cosas a la IA la próxima vez? ¿Por qué?
--->
-```
+Reflexión final:
+La IA es una herramienta muy buena para refrescar sintaxis o darte una estructura base, pero suele fallar en los detalles finos de la jerarquía del HTML y en la lógica de casos especiales en JS. Aprendí que sirve para acelerar el trabajo, pero siempre tengo que revisar y corregir el código para que sea escalable.
